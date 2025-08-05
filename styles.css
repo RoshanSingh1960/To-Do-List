@@ -1,0 +1,241 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main container */
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Input fields */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+/* Buttons row (Add & Clear) */
+.button-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#new-task-input,
+#new-task-priority,
+#new-task-due-date {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+    flex: 1;
+}
+
+/* Focus styling */
+#new-task-input:focus,
+#new-task-priority:focus,
+#new-task-due-date:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Add and Clear buttons */
+#add-task-button,
+#clear-task-button {
+    padding: 12px 0;
+    font-size: 16px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;
+    text-align: center;
+}
+
+#clear-task-button {
+    background-color: #dc3545;
+}
+
+#add-task-button:hover {
+    background-color: #0056b3;
+}
+
+#clear-task-button:hover {
+    background-color: #c82333;
+}
+
+/* Task list */
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Task styling */
+.task-item {
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Task rows */
+.task-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.task-desc {
+    font-size: 16px;
+    word-break: break-word;
+    color: #333;
+    flex-grow: 1;
+}
+
+.task-desc.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-meta {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+    flex-wrap: wrap;
+}
+
+.task-meta span {
+    background-color: #e9ecef;
+    padding: 4px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+/* Priority labels */
+.priority-low {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.priority-medium {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+.priority-high {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+/* Edit/Delete buttons */
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.task-actions button,
+.save-btn,
+.cancel-btn {
+    background: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.task-actions button:hover,
+.save-btn:hover,
+.cancel-btn:hover {
+    background-color: #e0e0e0;
+}
+
+input.edit-input,
+select.edit-priority,
+input.edit-date {
+    margin-top: 5px;
+    padding: 6px 8px;
+    font-size: 14px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    #add-task-button, #clear-task-button {
+        font-size: 14px;
+    }
+
+    .task-desc {
+        font-size: 14px;
+    }
+
+    .task-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .task-top-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        align-self: flex-end;
+    }
+}
